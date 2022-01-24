@@ -1,5 +1,6 @@
-$primary: #1a2639;
-$secondary: #c24d2c;
+$primary: #222831;
+$secondary: #f96d00;
+// Prefer: #222831, #393e46, #f96d00, #f2f2f2
 // #1a2639, #3e4a61, #c24d2c, #d9dad7
 
 * {
@@ -14,26 +15,14 @@ $secondary: #c24d2c;
 }
 
 html, body {
-    height: 100%;
+    height: auto;
     width: 100vw;
+    overflow-x: hidden;
 }
 
 #__next {
-    height: 100%;
+    height: fit-content;
+    min-height: 100vh;
     width: 100%;
     background: $primary;
 }
-
-.loader {
-    border: 10px solid white; 
-    border-top: 10px solid blue; 
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 2s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }

@@ -1,5 +1,6 @@
 import { makeStyles } from "@mui/styles";
 
+
 const useStyles = makeStyles({
     header: {
         display: 'flex',
@@ -12,17 +13,37 @@ const useStyles = makeStyles({
         position: 'sticky',
         top: '0',
     },
+    headerSM: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '20px',
+        width: '100%',
+        height: 'fit-content',
+        position: 'sticky',
+        top: '0',
+    },
     container: {
         height: 'fit-content',
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center'
     },
+    menu: {
+        marginLeft: 'auto',
+        fill: 'white',
+        fontSize: '28px',
+    },
     logo: {
-        fontSize: '1.2rem',
-        color: 'white',
-        fontWeight: '600',
+        fontSize: '1rem',
+        color: '#f96d00',
+        fontWeight: '700',
         height: 'fit-content'
+    },
+    paper: {
+        background: '#222831',
+        paddingTop: '50px'
     },
     box: {
         display: 'flex',
@@ -33,8 +54,10 @@ const useStyles = makeStyles({
     button: {
         fontWeight: '600',
         textTransform: 'none',
+        marginRight: '20px',
         marginLeft: '20px',
-        fontSize: '.9rem'
+        fontSize: '.9rem',
+        width: 'fit-content',
     },
     link: {
         color: 'white',
@@ -56,6 +79,14 @@ const useStyles = makeStyles({
             transform: 'scaleX(1)',
             transition: '.3s',
         }
+    },
+    linkSM: {
+        color: 'white',
+        fontWeight: '600',
+        fontSize: '.9rem',
+        marginLeft: '25px',
+        marginBottom: '30px',
+        width: 'fit-content',
     }
 },
 { name: 'Mui_Hdr_Cpnt'})

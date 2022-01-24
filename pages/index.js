@@ -1,6 +1,5 @@
 import { Container } from '@mui/material'
 import useStyles from '../styles/pages-styles/home.styles'
-import Loader from '../components/Loader'
 
 const Home = () => {
 
@@ -8,7 +7,7 @@ const Home = () => {
 
   return (
     <Container maxWidth='lg'>
-      <Loader show />
+      
     </Container>
   )
 }
