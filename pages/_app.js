@@ -49,7 +49,7 @@ const MyApp = ({ Component, pageProps }) => {
         setAvatarUrl(null)
       }
     })
-  }, [auth, router.pathname])
+  }, [router.pathname])
 
   return (
     <UserContext.Provider value={{currentUser, uid, username, avatarUrl}}>
