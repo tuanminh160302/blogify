@@ -1,14 +1,15 @@
 import * as React from 'react';
 import Link from 'next/link'
-import { Box, Drawer, Button, Container } from '@mui/material';
+import { Box, Drawer, Button, Container, Avatar } from '@mui/material';
 import useStyles from '../styles/components-styles/header.styles'
 import MenuIcon from '@mui/icons-material/Menu';
+import { UserContext } from '../lib/context';
+import { useContext } from 'react';
 
 export default function TemporaryDrawer() {
     const [openDrawer, setOpenDrawer] = React.useState(false)
     const classes = useStyles()
-    const user = null
-    const username = null
+    const { currentUser, uid, username, avatarUrl } = useContext(UserContext)
 
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -30,7 +31,20 @@ export default function TemporaryDrawer() {
             onClick={toggleDrawer(false)}
             onKeyDown={toggleDrawer(false)}
         >
-
+            {
+                !currentUser ?
+                    <Link href={{
+                        pathname: '/login'
+                    }}>
+                        <a><Button className={classes.button} variant='contained' color='secondary'>Log in</Button></a>
+                    </Link> :
+                    <Link href={{
+                        pathname: '/[username]',
+                        query: { username: 'de_steve16' }
+                    }}>
+                        <Avatar sx={{marginBottom: '30px'}} className={classes.avatar} alt={username} src={avatarUrl} />
+                    </Link>
+            }
             <Link href={{
                 pathname: '/'
             }}>
@@ -51,20 +65,6 @@ export default function TemporaryDrawer() {
             }}>
                 <a className={classes.linkSM}>News</a>
             </Link>
-            {
-                !user ?
-                    <Link href={{
-                        pathname: '/login'
-                    }}>
-                        <Button className={classes.button} variant='contained' color='secondary'><a>Log in</a></Button>
-                    </Link> :
-                    <Link href={{
-                        pathname: '/[username]',
-                        query: { username: 'de_steve16' }
-                    }}>
-                        <a className={classes.linkSM}>Profile</a>
-                    </Link>
-            }
         </Box>
     );
 
@@ -78,7 +78,7 @@ export default function TemporaryDrawer() {
                 </Link>
                 <MenuIcon className={classes.menu} onClick={toggleDrawer(true)}></MenuIcon>
                 <Drawer
-                    classes={{paper: classes.paper}}
+                    classes={{ paper: classes.paper }}
                     anchor='right'
                     open={openDrawer}
                     onClose={toggleDrawer(false)}

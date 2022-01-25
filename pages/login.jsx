@@ -1,18 +1,17 @@
 import { useState } from 'react'
 import { Container, Typography } from '@mui/material'
 import LoginComponent from '../components/LoginComponent'
-import SignupComponent from '../components/SignupComponent'
-import checkMobile from '../lib/isMobile'
+import AlreadySignedIn from '../components/AlreadySignedIn'
+import { UserContext } from '../lib/context'
+import { useContext } from 'react'
 
 const LoginPage = () => {
 
-    const isMobile = checkMobile()
+    const {currentUser, uid, username, avatarUrl} = useContext(UserContext)
 
     return (
-        <Container sx={{ maxWidth: 'lg', display: 'flex', flexDirection: `${isMobile ? 'column' : 'row'}`, 
-        alignItems: `${isMobile ? 'center' : 'flex-start'}`, justifyContent: `${isMobile ? 'flex-start' : 'center'}`, paddingTop: '75px' }}>
-            <LoginComponent/>
-            <SignupComponent />
+        <Container sx={{ maxWidth: 'lg', display: 'flex', justifyContent: 'center', paddingTop: '75px' }}>
+            {!currentUser ? <LoginComponent /> : <AlreadySignedIn />}
         </Container>
     )
 }

@@ -21,7 +21,7 @@ const useStyles = makeStyles({
 },
     { name: 'Mui_Ip_Cpnt' })
 
-const FormInput = ({ variant, label, required, type, fullWidth, name }) => {
+const FormInput = ({ variant, label, required, type, fullWidth, name, onChange }) => {
     const classes = useStyles()
 
     return (
@@ -36,6 +36,7 @@ const FormInput = ({ variant, label, required, type, fullWidth, name }) => {
             margin="normal"
             fullWidth={fullWidth}
             name={name}
+            onChange={onChange}
         />
     )
 }

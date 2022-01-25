@@ -41,6 +41,10 @@ const useStyles = makeStyles({
         fontWeight: '700',
         height: 'fit-content'
     },
+    avatar: {
+        marginLeft: '25px',
+        cursor: 'pointer',
+    },
     paper: {
         background: '#222831',
         paddingTop: '50px'
@@ -85,8 +89,17 @@ const useStyles = makeStyles({
         fontWeight: '600',
         fontSize: '.9rem',
         marginLeft: '25px',
+        marginRight: '25px',
         marginBottom: '30px',
         width: 'fit-content',
+    },
+    nav: {
+        width: '100%',
+        height: 'fit-content',
+        padding: '10px 0',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center'
     }
 },
 { name: 'Mui_Hdr_Cpnt'})

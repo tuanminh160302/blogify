@@ -1,13 +1,16 @@
 import Link from 'next/link'
-import { Box, Container, Button, Typography } from '@mui/material'
+import { Box, Container, Button, Avatar, ClickAwayListener, Typography } from '@mui/material'
 import useStyles from '../styles/components-styles/header.styles'
+import UserNav from './UserNav'
+import { UserContext } from '../lib/context'
+import { useContext } from 'react'
+import { useState } from 'react'
 
 const HeaderXL = () => {
 
     const classes = useStyles()
-    const user = null
-    const username = null
-    
+    const { currentUser, uid, username, avatarUrl } = useContext(UserContext)
+
     return (
         <div className={classes.header}>
             <Container className={classes.container} maxWidth='lg'>
@@ -41,18 +44,13 @@ const HeaderXL = () => {
                         <a className={classes.link}>News</a>
                     </Link>
                     {
-                        !user ?
+                        !currentUser ?
                             <Link href={{
                                 pathname: '/login'
                             }}>
-                                <Button className={classes.button} variant='contained' color='secondary'><a>Log in</a></Button>
+                                <a><Button className={classes.button} variant='contained' color='secondary'>Log in</Button></a>
                             </Link> :
-                            <Link href={{
-                                pathname: '/[username]',
-                                query: { username: 'de_steve16' }
-                            }}>
-                                <a className={classes.link}>Profile</a>
-                            </Link>
+                            <UserNav/>
                     }
                 </Box>
             </Container>
