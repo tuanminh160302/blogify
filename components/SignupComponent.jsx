@@ -56,7 +56,7 @@ const SignupComponent = () => {
                 <FormInput variant='standard' label='Comfirm password' required={true} type='password' fullWidth={true} name='confirm-password' onChange={(e) => { handleInputChange(e) }} />
                 <FormInput variant='standard' label='Username' required={true} type='text' fullWidth={true} name='username' onChange={(e) => { handleInputChange(e) }} />
                 <Button type='submit' className={classes.button} variant='contained' color='success' size='medium' sx={{
-                    textTransform: 'none', color: 'white', alignSelf: 'flex-start', marginTop: '20px'
+                    textTransform: 'none', color: 'white', alignSelf: 'flex-start', marginTop: '20px', width: '100%'
                 }}>Sign up</Button>
                 <Link href={'/login'}>
                     <a style={{ width: '100%', marginTop: '15px', fontSize: '.7rem', fontWeight: '400', width: '100%', cursor: 'pointer', color: '#f96d00' }}>

@@ -8,8 +8,11 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useState } from 'react'
 import { handleErrorToast, handleSuccessToast } from '../lib/toast'
 import { signInWithGoogle } from '../lib/firebase'
+import ResetPasswordModal from './resetPasswordModal'
+import { connect } from 'react-redux'
+import { setOpenReset } from '../redux/open-reset/open-reset.actions'
 
-const LoginComponent = () => {
+const LoginComponent = ({openReset, setOpenReset}) => {
 
     const classes = useStyles()
     const [email, setEmail] = useState()
@@ -54,20 +57,30 @@ const LoginComponent = () => {
                 <FormInput variant='standard' label='Email' required={true} type='email' fullWidth={true} name='l-email' onChange={(e) => {handleInputChange(e)}}/>
                 <FormInput variant='standard' label='Password' required={true} type='password' fullWidth={true} name='l-password' onChange={(e) => {handleInputChange(e)}}/>
                 <Button type='submit' className={classes.button} variant='contained' color='success' size='medium' sx={{
-                    textTransform: 'none', color: 'white', alignSelf: 'flex-start', marginTop: '20px'
+                    textTransform: 'none', color: 'white', marginTop: '20px', width: '100%'
                 }}>Log in</Button>
                 <Button className={classes.button} variant='contained' size='medium' onClick={() => {handleGoogleSignIn()}} sx={{
-                    textTransform: 'none', color: 'white', alignSelf: 'flex-start', marginTop: '20px', background: '#4285f4'
+                    textTransform: 'none', color: 'white', marginTop: '20px', background: '#4285f4', width: '100%'
                 }}>Sign in with Google</Button>
-                <Typography variant='string' color='secondary' sx={{ fontWeight: '400', width: '100%', fontSize: '.7rem', cursor: 'pointer', marginTop: '15px' }}>Forgot password?</Typography>
+                <Typography variant='string' color='secondary' sx={{ fontWeight: '400', width: '100%', fontSize: '.7rem', cursor: 'pointer', marginTop: '15px' }} 
+                            onClick={() => {setOpenReset(true)}}>Forgot password?</Typography>
                 <Link href={'/signup'}>
                     <a style={{ width: '100%', marginTop: '15px', fontSize: '.7rem', fontWeight: '400', width: '100%', cursor: 'pointer', color: '#f96d00' }}>
                         Create an account instead
                     </a>
                 </Link>
             </form>
+            <ResetPasswordModal open={openReset}/>
         </div>
     )
 }
 
-export default LoginComponent
+const mapStateToProps = ({openReset}) => ({
+    openReset: openReset.openReset
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    setOpenReset: (boolean) => {dispatch(setOpenReset(boolean))}
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginComponent)

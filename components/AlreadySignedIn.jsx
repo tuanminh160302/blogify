@@ -11,7 +11,7 @@ const AlreadySignedIn = () => {
     return (
         <>
             {
-                username ?
+                !username ?
                     <Link href='/'>
                         <a style={{
                             color: '#f2f2f2', background: '#222831', padding: '30px',
@@ -22,8 +22,8 @@ const AlreadySignedIn = () => {
                             Already Signed In. Click here to go back to the home page
                         </a>
                     </Link> :
-                    <LoadingButton loading variant="contained" loadingPosition="end" sx={{ color: '#222831 !important', background: '#f96d00 !important' }}>
-                        <Typography variant='string' sx={{marginRight: '20px', fontSize: '.7rem'}}>Fetching data...</Typography>
+                    <LoadingButton disabled loading variant="contained" loadingPosition="start" sx={{ color: '#f2f2f2 !important', background: '#f96d00 !important' }}>
+                        <Typography variant='string' sx={{marginLeft: '20px', fontSize: '.7rem'}}>Fetching data...</Typography>
                     </LoadingButton>
             }
         </>
