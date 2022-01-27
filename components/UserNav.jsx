@@ -31,8 +31,6 @@ const UserNav = ({ className }) => {
         router.push('/login')
     }
 
-    console.log(open)
-
     return (
         <ClickAwayListener onClickAway={() => { setOpen(false) }}>
             <Box className={className} sx={{ position: 'relative', width: 'fit-content', height: 'fit-content' }}>
