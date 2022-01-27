@@ -11,7 +11,7 @@ const AlreadySignedIn = () => {
     return (
         <>
             {
-                !username ?
+                username ?
                     <Link href='/'>
                         <a style={{
                             color: '#f2f2f2', background: '#222831', padding: '30px',

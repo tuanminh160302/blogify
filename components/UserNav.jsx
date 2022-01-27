@@ -2,7 +2,7 @@ import { ClickAwayListener, Box, Avatar, Typography } from '@mui/material'
 import { UserContext } from '../lib/context'
 import { useContext } from 'react'
 import useStyles from '../styles/components-styles/header.styles'
-import { PowerSettingsNew, AccountCircle } from '@mui/icons-material'
+import { PowerSettingsNew, AccountCircle, Settings } from '@mui/icons-material'
 import Link from 'next/link'
 import { useState } from 'react'
 import { auth } from '../lib/firebase'
@@ -50,6 +50,15 @@ const UserNav = () => {
                                     query: { username }
                                 }}>
                                     <a><Typography color="secondary" sx={{ width: 'fit-content', marginLeft: '10px' }}>Profile</Typography></a>
+                                </Link>
+                            </div>
+                            <div className={classes.nav}>
+                                <Settings fontSize='large' color="secondary" />
+                                <Link href={{
+                                    pathname: '/[username]/settings',
+                                    query: { username }
+                                }}>
+                                    <a><Typography color="secondary" sx={{ width: 'fit-content', marginLeft: '10px' }}>Settings</Typography></a>
                                 </Link>
                             </div>
                             <div className={classes.nav}>
