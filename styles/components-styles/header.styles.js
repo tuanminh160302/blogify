@@ -12,17 +12,25 @@ const useStyles = makeStyles({
         height: 'fit-content',
         position: 'sticky',
         top: '0',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        background: 'rgba(34,40,49,.5)',
+        zIndex: '100',
     },
     headerSM: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: '20px',
+        padding: '30px 20px',
         width: '100%',
         height: 'fit-content',
         position: 'sticky',
         top: '0',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        background: 'rgba(34,40,49,.5)',
+        zIndex: '100',
     },
     container: {
         height: 'fit-content',
@@ -32,8 +40,6 @@ const useStyles = makeStyles({
     },
     menu: {
         marginLeft: 'auto',
-        fill: 'white',
-        fontSize: '28px',
     },
     logo: {
         fontSize: '1rem',
@@ -47,7 +53,7 @@ const useStyles = makeStyles({
     },
     paper: {
         background: '#222831',
-        paddingTop: '50px'
+        paddingTop: '50px',
     },
     box: {
         display: 'flex',
@@ -86,11 +92,8 @@ const useStyles = makeStyles({
     },
     linkSM: {
         color: 'white',
-        fontWeight: '600',
-        fontSize: '.9rem',
-        marginLeft: '25px',
-        marginRight: '25px',
-        marginBottom: '30px',
+        fontWeight: '500',
+        fontSize: '.8rem',
         width: 'fit-content',
     },
     nav: {
@@ -99,7 +102,7 @@ const useStyles = makeStyles({
         padding: '10px 0',
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
     }
 },
 { name: 'Mui_Hdr_Cpnt'})

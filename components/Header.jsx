@@ -4,6 +4,7 @@ import useStyles from '../styles/components-styles/header.styles'
 import useCheckMobile from '../lib/isMobile'
 import HeaderXL from './HeaderXL'
 import HeaderSM from './HeaderSM'
+import HeaderSM_Taskbar from './HeaderSM_Taskbar'
 
 const Header = ({ }) => {
     const isMobile = useCheckMobile()
@@ -11,7 +12,12 @@ const Header = ({ }) => {
     return (
         <>
             {
-                !isMobile ? <HeaderXL></HeaderXL> : <HeaderSM></HeaderSM>
+                !isMobile ?
+                    <HeaderXL /> :
+                    <>
+                        <HeaderSM />
+                        <HeaderSM_Taskbar />
+                    </>
             }
         </>
     )

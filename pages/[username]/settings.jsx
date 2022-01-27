@@ -33,7 +33,7 @@ const SettingsPage = ({ }) => {
                     currentUser ?
                         <Box className={classes.infoBoxElement}>
                             <img className={classes.avatar} src={avatarURL} alt={username} />
-                            <Button variant='contained' color='success' sx={{ color: '#f2f2f2' }}>Upload</Button>
+                            <Button variant='contained' color='success' sx={{ color: '#f2f2f2', textTransform: 'none' }}>Upload</Button>
                         </Box> :
                         <Box className={classes.infoBoxElement}>
                             <Skeleton variant="circular" animation="wave" width={196} height={196} sx={{ background: 'rgba(0,0,0,.2)' }} />
