@@ -9,7 +9,8 @@ import { useContext } from 'react';
 export default function TemporaryDrawer() {
     const [openDrawer, setOpenDrawer] = React.useState(false)
     const classes = useStyles()
-    const { currentUser, uid, username, avatarUrl } = useContext(UserContext)
+    const { currentUser, userData } = useContext(UserContext)
+    const {username, avatarURL} = userData
 
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -42,7 +43,7 @@ export default function TemporaryDrawer() {
                         pathname: '/[username]',
                         query: { username: 'de_steve16' }
                     }}>
-                        <Avatar sx={{marginBottom: '30px'}} className={classes.avatar} alt={username} src={avatarUrl} />
+                        <Avatar sx={{marginBottom: '30px'}} className={classes.avatar} alt={username} src={avatarURL} />
                     </Link>
             }
             <Link href={{

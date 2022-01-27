@@ -7,7 +7,7 @@ import { useContext } from 'react'
 
 const LoginPage = () => {
 
-    const {currentUser, uid, username, avatarUrl} = useContext(UserContext)
+    const {currentUser, uid, userData} = useContext(UserContext)
 
     return (
         <Container sx={{ maxWidth: 'lg', display: 'flex', justifyContent: 'center', paddingTop: '75px' }}>

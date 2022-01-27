@@ -4,12 +4,12 @@ import useStyles from '../styles/components-styles/header.styles'
 import UserNav from './UserNav'
 import { UserContext } from '../lib/context'
 import { useContext } from 'react'
-import { useState } from 'react'
 
 const HeaderXL = () => {
 
     const classes = useStyles()
-    const { currentUser, uid, username, avatarUrl } = useContext(UserContext)
+    const { currentUser, userData } = useContext(UserContext)
+    const { username, avatarURL } = userData
 
     return (
         <div className={classes.header}>

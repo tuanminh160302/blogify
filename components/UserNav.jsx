@@ -8,27 +8,31 @@ import { useState } from 'react'
 import { auth } from '../lib/firebase'
 import { signOut } from 'firebase/auth'
 import { handleSuccessToast } from '../lib/toast'
+import { useRouter } from 'next/router'
 
 const UserNav = () => {
 
     const classes = useStyles()
     const [open, setOpen] = useState(false)
-    const { currentUser, uid, username, avatarUrl } = useContext(UserContext)
+    const router = useRouter()
+    const { currentUser, uid, userData } = useContext(UserContext)
+    const {username, avatarURL} = userData
 
-    const handleSignOut = () => {
-        signOut(auth).then(() => {
+    const handleSignOut = async () => {
+        await signOut(auth).then(() => {
             // Sign-out successful.
             handleSuccessToast('Successfully signed out')
-          }).catch((error) => {
+        }).catch((error) => {
             // An error happened.
             handleSuccessToast('Error! Cannot sign out')
-          });
+        });
+        router.push('/login')
     }
 
     return (
         <ClickAwayListener onClickAway={() => { setOpen(false) }}>
             <Box sx={{ position: 'relative', width: 'fit-content', height: 'fit-content' }}>
-                <Avatar className={classes.avatar} alt={username} src={avatarUrl} onClick={() => { setOpen(!open) }} />
+                <Avatar className={classes.avatar} alt={username} src={avatarURL} onClick={() => { setOpen(!open) }} />
                 {
                     open ?
                         <Box sx={{
@@ -49,7 +53,7 @@ const UserNav = () => {
                                     pathname: '/[username]',
                                     query: { username }
                                 }}>
-                                    <a><Typography color="secondary" sx={{ width: 'fit-content', marginLeft: '10px' }}>Profile</Typography></a>
+                                    <a onClick={() => { setOpen(false) }}><Typography color="secondary" sx={{ width: 'fit-content', marginLeft: '10px' }}>Profile</Typography></a>
                                 </Link>
                             </div>
                             <div className={classes.nav}>
@@ -58,12 +62,12 @@ const UserNav = () => {
                                     pathname: '/[username]/settings',
                                     query: { username }
                                 }}>
-                                    <a><Typography color="secondary" sx={{ width: 'fit-content', marginLeft: '10px' }}>Settings</Typography></a>
+                                    <a onClick={() => { setOpen(false) }}><Typography color="secondary" sx={{ width: 'fit-content', marginLeft: '10px' }}>Settings</Typography></a>
                                 </Link>
                             </div>
                             <div className={classes.nav}>
                                 <PowerSettingsNew fontSize='large' color="secondary" />
-                                <Typography color="secondary" sx={{ width: 'fit-content', marginLeft: '10px', cursor: 'pointer' }} onClick={() => {handleSignOut()}}>Sign Out</Typography>
+                                <Typography color="secondary" sx={{ width: 'fit-content', marginLeft: '10px', cursor: 'pointer' }} onClick={() => { handleSignOut(); setOpen(false) }}>Sign Out</Typography>
                             </div>
                         </Box> : null
                 }

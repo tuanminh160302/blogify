@@ -5,8 +5,8 @@ import { LoadingButton } from '@mui/lab'
 import { Typography } from "@mui/material"
 
 const AlreadySignedIn = () => {
-    const { username } = useContext(UserContext)
-    console.log(username)
+    const { userData } = useContext(UserContext)
+    const username = userData.username
 
     return (
         <>

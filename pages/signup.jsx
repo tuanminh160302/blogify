@@ -8,7 +8,7 @@ import { useContext } from 'react'
 
 const SignupPage = () => {
 
-    const {currentUser, uid, username, avatarUrl} = useContext(UserContext)
+    const {currentUser} = useContext(UserContext)
     const isMobile = useCheckMobile()
 
     return (
