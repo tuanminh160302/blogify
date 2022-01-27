@@ -14,7 +14,6 @@ const useStyles = makeStyles({
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        height: 'fit-content',
         width: '300px',
         display: 'flex',
         flexDirection: 'column',
