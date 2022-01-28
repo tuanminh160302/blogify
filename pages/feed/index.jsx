@@ -1,6 +1,6 @@
 const Feed = () => {
     return (
-        <div></div>
+        <div>feed</div>
     )
 }
 

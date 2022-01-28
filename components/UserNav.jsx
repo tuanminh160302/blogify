@@ -64,8 +64,7 @@ const UserNav = ({ className }) => {
                             <div className={classes.nav}>
                                 <Settings fontSize='medium' color="secondary" />
                                 <Link href={{
-                                    pathname: '/[username]/settings',
-                                    query: { username }
+                                    pathname: '/accounts/settings',
                                 }}>
                                     <a onClick={() => { setOpen(false) }}><Typography color="secondary" sx={{
                                         width: 'fit-content', marginLeft: '10px', fontSize: '.8rem',

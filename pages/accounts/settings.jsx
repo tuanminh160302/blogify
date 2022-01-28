@@ -1,15 +1,16 @@
 import { Container, Box, Button, Typography, Skeleton } from "@mui/material"
 import useStyles from '../../styles/pages-styles/settings.styles'
 import { UserContext } from "../../lib/context"
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import FormInput from "../../components/input"
 import useCheckMobile from "../../lib/isMobile"
-import { useState } from "react"
+import { useRouter} from 'next/router'
 
 const SettingsPage = ({ }) => {
     const classes = useStyles()
     const { currentUser, uid, userData} = useContext(UserContext)
     const { username, avatarURL } = userData
+    const router = useRouter()
     const isMobile = useCheckMobile()
     const [emailInput, setEmailInput] = useState()
     const [usernameInput, setUsernameInput] = useState()
@@ -69,7 +70,7 @@ const SettingsPage = ({ }) => {
                             }}>Go private</Button>
                             <Box className={classes.editElement}>
                                 <Typography className={classes.editTitle} variant="string" color='secondary' sx={{ fontSize: '.7rem', fontWeight: '500' }}>Email</Typography>
-                                <FormInput variant='standard' required={false} type='email' fullWidth={true} name='email' placeholder={currentUser.email} onChange={(e) => {handleInputChange(e)}}/>
+                                <FormInput variant='standard' required={false} type='email' fullWidth={true} name='email' placeholder={currentUser?.email} onChange={(e) => {handleInputChange(e)}}/>
                             </Box>
                             <Box className={classes.editElement}>
                                 <Typography className={classes.editTitle} variant="string" color='secondary' sx={{ fontSize: '.7rem', fontWeight: '500' }}>Username</Typography>
