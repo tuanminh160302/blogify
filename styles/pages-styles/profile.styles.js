@@ -45,6 +45,6 @@ const useStyles = makeStyles({
         padding: '45px 50px',
         height: '50vh',
     },
-})
+}, {name: 'Mui_Profile_Cmpt'})
 
 export default useStyles

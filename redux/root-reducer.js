@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import OpenResetReducer from "./open-reset/open-reset.reducer";
+import OpenOverlayReducer from "./open-reset/open-overlay.reducer";
 
 export default combineReducers({
-    openReset: OpenResetReducer
+    openOverlay: OpenOverlayReducer
 })

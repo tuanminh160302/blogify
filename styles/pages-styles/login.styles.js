@@ -12,7 +12,7 @@ const useStyles = makeStyles({
         boxShadow: '0px 0px 15px 5px rgba(0,0,0,0.35)',
         WebkitBoxShadow: '0px 0px 15px 5px rgba(0,0,0,0.35)',
         borderRadius: '20px'
-        
+
     },
     form: {
         width: '100%',

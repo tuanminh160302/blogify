@@ -2,7 +2,7 @@ import { Container, Box, Button, Typography, Skeleton } from "@mui/material"
 import useStyles from '../../styles/pages-styles/settings.styles'
 import { UserContext } from "../../lib/context"
 import { useContext, useEffect, useState } from "react"
-import FormInput from "../../components/input"
+import FormInput from "../../components/FormInput"
 import useCheckMobile from "../../lib/isMobile"
 import { useRouter} from 'next/router'
 

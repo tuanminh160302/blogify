@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Container, Typography, Button } from '@mui/material'
-import FormInput from './input'
+import FormInput from './FormInput'
 import useStyles from '../styles/pages-styles/login.styles'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
